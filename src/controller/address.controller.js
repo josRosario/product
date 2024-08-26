@@ -2,6 +2,7 @@ import * as address from "../service/address.service.js"
 
 export const createAddress  = async (data) => {
   const newData = JSON.parse(data);
+
   const obj = {
     city:newData.city,
     street: newData.street,

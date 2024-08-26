@@ -18,17 +18,16 @@ const port = process.env.PORT || 4001
 const kafka = new kafkaConfig();
 
 
-
-kafka.consume('addAddress', ( value) => {
+kafka.consume('my-topic', ( value) => {
         createAddress(value)
 
 })
-
+/*
 kafka.consume('updateAddress', (value) => {
     console.log('trying to update the data')
     upudateAddress(value)
 })
-
+*/
 
 
 try {
