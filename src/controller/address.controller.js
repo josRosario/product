@@ -17,8 +17,3 @@ export const createAddress  = async (data) => {
       console.log(error);
     }
 }
-
-export const upudateAddress = async(data) => {
-  console.log(JSON.parse(data), ' hola klk' )
-
-}
