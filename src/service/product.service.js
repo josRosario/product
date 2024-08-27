@@ -7,3 +7,11 @@ export const createProduct = async(product_data) => {
         throw new Error(error, error.message)        
     }
 }
+
+export const getProducts = async (req, res) => {
+    try {
+        return await Product.findAll()
+    } catch (error) {
+        throw new Error("Hubo un error al obtener los productos", error.message)    
+    }
+}

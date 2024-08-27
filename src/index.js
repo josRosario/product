@@ -12,25 +12,22 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(router)
 
-
 const port = process.env.PORT || 4001
-
-const kafka = new kafkaConfig();
-
-kafka.consume("new-address", ( value) => {
+new kafkaConfig();
+/*kafka.consume("new-address", ( value) => {
         createAddress(value)
 })
 
-
+kafka.consume("new-orden", (value) => {
+    console.log(value, ' this is the value for testing...');
+})*/
 try {
     await db.authenticate();
     await db.sync({alter:true});
     console.log("The connection to potgres has been stablished...")
 } catch (error) {
-    console.log("It has been an error to stablish the connection...", error)
-    
+    console.log("It has been an error to stablish the connection...", error)    
 }
-
 
 app.listen(port, ( ) => {
     console.log('app running on port: ', port);
