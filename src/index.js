@@ -1,7 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import db from "./config/connection.js";
-//import router from "./route/route.js";
+import router from "./route/route.js";
 import bodyParser from "body-parser";
 import kafkaConfig from "./config/kafkaConfig.js"; 
 dotenv.config(); 
@@ -10,7 +10,7 @@ import  {createAddress, upudateAddress}  from "./controller/address.controller.j
 const app = express();
 app.use(express.json());
 app.use(bodyParser.urlencoded({extended:true}));
-//app.use(router)
+app.use(router)
 
 
 const port = process.env.PORT || 4001
@@ -18,7 +18,7 @@ const port = process.env.PORT || 4001
 const kafka = new kafkaConfig();
 
 
-kafka.consume('my-topic', ( value) => {
+kafka.consume("my-topic", ( value) => {
         createAddress(value)
 
 })

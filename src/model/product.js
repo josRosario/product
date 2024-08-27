@@ -1,7 +1,7 @@
 import db from "../config/connection.js"
 import * as sequelize from "sequelize";
 
-const Product = db.define("address", {
+const Product = db.define("products", {
     id:{
         type: sequelize.DataTypes.INTEGER,
         autoIncrement:true,

@@ -33,6 +33,10 @@ class kafkaConfig {
       
           await this.consumer.run({
             eachMessage: async ({ topic, partition, message }) => {
+              /*if (topic ==  "my-topic"){
+                console.log(message.value.toString());
+                return;
+              }*/
               const value = message.value.toString();
               callback(value);
             },
